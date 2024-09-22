@@ -1,0 +1,75 @@
+.match-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    border: 1px solid hsl(0, 0%, 50%);
+    border-radius: 10px;
+    gap: 20px;
+    backdrop-filter: blur(3px);
+    cursor: pointer;
+
+    .hero-icon {
+        display: flex;
+        justify-content: center;
+        width: 100px;
+    }
+
+    .status {
+        height: 30px;
+        min-width: 30px;
+        border-radius: 12px;
+        color: black;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.victory {
+            background-color: green;
+        }
+
+        &.defeat {
+            background-color: red;
+        }
+    }
+
+    .space {
+        flex-grow: 1;
+    }
+
+    .items-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        max-width: 200px;
+
+        .item {
+            width: 30%;
+            margin: 10px 0 10px;
+            border-radius: 4px;
+            background-color: hsl(0, 0%, 10%);
+        }
+    }
+}
+
+.match-container::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to top, rgb(255, 43, 237), rgb(154, 2, 255));
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 0;
+    border-radius: 5px;
+    transition: height 100ms ease-in-out;
+    z-index: 0;
+}
+
+.match-container:hover::after {
+    height: 100%;
+    filter: blur(3px);
+}
+
+.match-container * {
+    z-index: 1;
+}

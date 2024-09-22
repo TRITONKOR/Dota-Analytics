@@ -1,0 +1,10 @@
+.d2mh {
+    font-size: 50px;
+    color: #ff0000;
+}
+
+.hero-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

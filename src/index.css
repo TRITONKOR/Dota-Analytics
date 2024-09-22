@@ -1,0 +1,17 @@
+@import '../node_modules/dota2-minimap-hero-sprites/assets/stylesheets/dota2minimapheroes.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: hsl(0, 0%, 0%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

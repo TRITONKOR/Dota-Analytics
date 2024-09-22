@@ -1,0 +1,36 @@
+.match-list-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+
+    .match-list {
+        width: 70%;
+        border: 1px solid hsl(0, 0%, 50%);
+        border-radius: 12px;
+        padding: 20px;
+        background-color: hsla(0, 0%, 25%, 0.8);
+
+        .user-info {
+            border-radius: 12px;
+            display: flex;
+            padding: 10px;
+            justify-content: center;
+
+            h2 {
+                font-size: 2rem;
+                justify-self: center;
+                text-align: center;
+            }
+        }
+
+        .match {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px;
+        }
+
+    }
+}
