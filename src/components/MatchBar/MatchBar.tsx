@@ -1,13 +1,50 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useItems } from '../../hook/useItems';
 import HeroIcon from './HeroIcon/HeroIcon';
 import './matchBar.scss';
 
+interface Item {
+    id: number;
+    name: string;
+    displayName: string;
+    image: string;
+}
 
+interface Player {
+    isVictory: boolean;
+    level: number;
+    kills: number;
+    deaths: number;
+    assists: number;
+    award: string;
+    gameMode: string;
+    item0Id: number;
+    item1Id: number;
+    item2Id: number;
+    item3Id: number;
+    item4Id: number;
+    item5Id: number;
+}
 
-function MatchBar({ match, player }) {
+interface Match {
+    gameMode: string;
+}
 
-    const [playerItems, setPlayerItems] = useState([]);
+interface Hero {
+    shortName: string;
+}
+
+interface Player {
+    hero: Hero;
+}
+
+interface HeroIconProps {
+    player: Player;
+}
+
+const MatchBar: React.FC<{ match: Match; player: Player }> = ({ match, player }) => {
+
+    const [playerItems, setPlayerItems] = useState<(Item | undefined)[]>([]);
     const { items, loading, error } = useItems();
 
     useEffect(() => {
@@ -21,7 +58,7 @@ function MatchBar({ match, player }) {
                 player.item5Id
             ];
 
-            let playerItems = playerItemIds.map(id => items.find(item => item.id === id));
+            let playerItems = playerItemIds.map(id => items.find((item: Item) => item.id === id));
             playerItems = playerItems.map(item => {
                 if (item) {
                     const updatedName = item.name.replace("item_", "") + "_lg.png?3";

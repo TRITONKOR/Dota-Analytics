@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import MatchList from './components/MatchList/MatchList.jsx';
-import './App.scss'
+import React, { useState } from 'react';
+import './App.scss';
+import MatchList from './components/MatchList/MatchList';
 
 const App = () => {
 
     const [inputValue, setInputValue] = useState('');
-    const [submittedValue, setSubmittedValue] = useState(null);
+    const [submittedValue, setSubmittedValue] = useState<number | null>(null);
 
-    function handleInputChange(event) {
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         const value = event.target.value;
         if (/^\d*$/.test(value)) {
             setInputValue(value);
         }
     }
 
-    function handleSubmit(event) {
+    function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         if (inputValue) {
             setSubmittedValue(Number(inputValue));

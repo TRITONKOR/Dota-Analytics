@@ -1,17 +1,17 @@
-@import '../node_modules/dota2-minimap-hero-sprites/assets/stylesheets/dota2minimapheroes.css';
+@import url('../node_modules/dota2-minimap-hero-sprites/assets/stylesheets/dota2minimapheroes.css');
 
 * {
-    margin: 0;
     padding: 0;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+    margin: 0;
     font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
 }
 
 body {
-    background-color: hsl(0, 0%, 0%);
-    align-items: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: hsl(0deg 0% 0%);
 }
