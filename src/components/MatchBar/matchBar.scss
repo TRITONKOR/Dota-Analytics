@@ -14,6 +14,33 @@
         width: 100px;
     }
 
+    .role {
+        height: 30px;
+        min-width: 30px;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+      &.soft-support {
+          background-image: url(/image/soft-support.svg);
+      }
+
+      &.full-support {
+          background-image: url(/image/full-support.svg);
+      }
+
+      &.offlane {
+          background-image: url(/image/offlane.svg);
+      }
+
+      &.mid {
+          background-image: url(/image/mid.svg);
+      }
+
+      &.cary {
+        background-image: url(/image/cary.svg);
+    }
+    }
+
     .status {
         height: 30px;
         min-width: 30px;

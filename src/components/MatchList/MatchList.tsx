@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import React from 'react';
+import { Match } from '../../interfaces/matchInterfaces';
 import MatchBar from '../MatchBar/MatchBar';
 import './MatchList.scss';
 
@@ -45,37 +46,6 @@ query GetPlayerMatches($steamAccountId: Long!) {
 
 interface PlayerMatchesProps {
     steamAccountId: number;
-}
-
-interface Player {
-    steamAccountId: number;
-    isVictory: boolean;
-    level: number;
-    kills: number;
-    deaths: number;
-    assists: number;
-    award: string;
-    gameMode: string;
-    item0Id: number;
-    item1Id: number;
-    item2Id: number;
-    item3Id: number;
-    item4Id: number;
-    item5Id: number;
-}
-
-interface Match {
-    id: number;
-    players: Player[];
-    gameMode: string;
-}
-
-interface Hero {
-    shortName: string;
-}
-
-interface Player {
-    hero: Hero;
 }
 
 const PlayerMatches: React.FC<PlayerMatchesProps> = ({ steamAccountId }) => {

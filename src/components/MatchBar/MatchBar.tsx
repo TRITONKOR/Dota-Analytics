@@ -1,51 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useItems } from '../../hook/useItems';
+import { Item, Match, Player } from '../../interfaces/matchInterfaces';
+import { positionsMap } from '../../mappings/apiValueMap';
 import HeroIcon from './HeroIcon/HeroIcon';
 import './matchBar.scss';
 
-interface Item {
-    id: number;
-    name: string;
-    displayName: string;
-    image: string;
-}
-
-interface Player {
-    isVictory: boolean;
-    level: number;
-    kills: number;
-    deaths: number;
-    assists: number;
-    award: string;
-    gameMode: string;
-    item0Id: number;
-    item1Id: number;
-    item2Id: number;
-    item3Id: number;
-    item4Id: number;
-    item5Id: number;
-}
-
-interface Match {
-    gameMode: string;
-}
-
-interface Hero {
-    shortName: string;
-}
-
-interface Player {
-    hero: Hero;
-}
-
-interface HeroIconProps {
-    player: Player;
-}
 
 const MatchBar: React.FC<{ match: Match; player: Player }> = ({ match, player }) => {
 
     const [playerItems, setPlayerItems] = useState<(Item | undefined)[]>([]);
     const { items, loading, error } = useItems();
+
+    const playerPosition = positionsMap.get(player.position) || 'default-position';
 
     useEffect(() => {
         if (items.length > 0) {
@@ -80,7 +46,8 @@ const MatchBar: React.FC<{ match: Match; player: Player }> = ({ match, player })
     return (
         <div className="match-container">
             <HeroIcon player={player}></HeroIcon>
-            <div className={`status ${player.isVictory ? 'victory' : 'defeat'}`}>
+            <div className={`role ${playerPosition}`} />
+            <div className={`status ${player.isVictory ? 'victory' : 'defeat'}`} >
                 {player.isVictory ? 'W' : 'L'}
             </div>
             <div className='level'>
