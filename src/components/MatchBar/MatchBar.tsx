@@ -27,7 +27,7 @@ const MatchBar: React.FC<{ match: Match; player: Player }> = ({ match, player })
             let playerItems = playerItemIds.map(id => items.find((item: Item) => item.id === id));
             playerItems = playerItems.map(item => {
                 if (item) {
-                    const updatedName = item.name.replace("item_", "") + "_lg.png?3";
+                    const updatedName = item.name.replace("item_", "") + ".png";
                     return {
                         ...item,
                         image: updatedName
@@ -42,6 +42,8 @@ const MatchBar: React.FC<{ match: Match; player: Player }> = ({ match, player })
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
+    const upperItems = playerItems.slice(0, 3);
+    const lowerItems = playerItems.slice(3);
 
     return (
         <div className="match-container">
@@ -62,15 +64,26 @@ const MatchBar: React.FC<{ match: Match; player: Player }> = ({ match, player })
             <div className='space'></div>
             <div className='gameMode'>{match.gameMode}</div>
             <div className='items-container'>
-                {playerItems.map((item, index) => (
-                    item ? (
-                        <img key={index} className='item' src={`https://cdn.dota2.com/apps/dota2/images/items/${item.image}`} alt={item.displayName} />
-                    ) : (
-                        <div key={index} className='item' />
-                    )
-                ))}
-            </div>
+                <div className='upper-items-container'>
+                    {upperItems.map((item, index) => (
+                        item ? (
+                            <img key={index} className='item' src={`https://cdn.stratz.com/images/dota2/items/${item.image}`} alt={item.displayName} />
+                        ) : (
+                            <img key={index} className='item' src={`https://cdn.stratz.com/images/dota2/items/blank.png`} />
+                        )
+                    ))}
+                </div>
 
+                <div className='lower-items-container'>
+                    {lowerItems.map((item, index) => (
+                        item ? (
+                            <img key={index} className='item' src={`https://cdn.stratz.com/images/dota2/items/${item.image}`} alt={item.displayName} />
+                        ) : (
+                            <img key={index} className='item' src={`https://cdn.stratz.com/images/dota2/items/blank.png`} />
+                        )
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

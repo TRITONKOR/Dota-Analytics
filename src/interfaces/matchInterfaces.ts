@@ -1,5 +1,4 @@
 export interface Player {
-    hero: Hero;
     position: string;
     steamAccountId: number;
     isVictory: boolean;
@@ -15,6 +14,7 @@ export interface Player {
     item3Id: number;
     item4Id: number;
     item5Id: number;
+    hero: Hero;
 }
 
 export interface Match {

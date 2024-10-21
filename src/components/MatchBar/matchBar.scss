@@ -5,18 +5,19 @@
     border: 1px solid hsl(0, 0%, 50%);
     border-radius: 10px;
     gap: 20px;
+    min-width: fit-content;
     backdrop-filter: blur(3px);
     cursor: pointer;
 
     .hero-icon {
         display: flex;
         justify-content: center;
-        width: 100px;
+        width: 70px;
     }
 
     .role {
-        height: 30px;
-        min-width: 30px;
+        height: 20px;
+        min-width: 20px;
         background-repeat: no-repeat;
         background-size: cover;
 
@@ -42,9 +43,9 @@
     }
 
     .status {
-        height: 30px;
-        min-width: 30px;
-        border-radius: 12px;
+        border-radius: 4px;
+        min-width: 20px;
+        height: 20px;
         color: black;
         font-weight: bold;
         display: flex;
@@ -66,13 +67,23 @@
 
     .items-container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        max-width: 200px;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        .upper-items-container{
+            display: flex;
+            box-sizing: border-box;
+            margin-bottom: 4px;
+        }
+
+        .lower-items-container{
+            display: flex;
+            box-sizing: border-box;
+        }
 
         .item {
-            width: 30%;
-            margin: 10px 0 10px;
+            height: 18px;
+            margin-right: 4px;
             border-radius: 4px;
             background-color: hsl(0, 0%, 10%);
         }

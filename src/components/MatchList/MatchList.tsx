@@ -43,6 +43,13 @@ query GetPlayerMatches($steamAccountId: Long!) {
     }
 }
 `;
+/*
+hero {
+   shortName
+}
+
+<MatchBar match={match} player={player} />
+*/
 
 interface PlayerMatchesProps {
     steamAccountId: number;
@@ -55,6 +62,7 @@ const PlayerMatches: React.FC<PlayerMatchesProps> = ({ steamAccountId }) => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
+
 
     return (
         <div className='match-list-container'>
